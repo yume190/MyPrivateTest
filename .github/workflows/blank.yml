@@ -25,6 +25,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
+      - name: Collect Workflow Telemetry
+        uses: catchpoint/workflow-telemetry-action@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Clone  Public repository
         uses: GuillaumeFalourd/clone-github-repo-action@v2.3
         with:
@@ -32,17 +37,18 @@ jobs:
           repository: 'TypeFill'
           branch: 'master'
 
-      - run: |
-          ls -l
+      # - run: |
+      #     ls -l
 
-      - name: Clone  PRIVATE repository
-        uses: GuillaumeFalourd/clone-github-repo-action@v2.3
-        with:
-          owner: 'yume190'
-          repository: 'MyPrivate'
-          access-token: ${{ secrets.ACCESS_TOKEN }}
+      # - name: Clone  PRIVATE repository
+      #   uses: GuillaumeFalourd/clone-github-repo-action@v2.3
+      #   with:
+      #     owner: 'yume190'
+      #     repository: 'MyPrivate'
+      #     access-token: ${{ secrets.ACCESS_TOKEN }}
 
       - run: |
+          pwd
           ls -l
 
 
