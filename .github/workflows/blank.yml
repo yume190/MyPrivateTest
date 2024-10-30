@@ -24,6 +24,14 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+
+      - name: Clone  PRIVATE repository
+        uses: GuillaumeFalourd/clone-github-repo-action@v2.3
+        with:
+          owner: 'yume190'
+          repository: 'MyPrivate'
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+
       - run: |
-          git clone https://github.com/yume190/MyPrivate
+          ls -l
       
