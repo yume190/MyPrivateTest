@@ -30,6 +30,10 @@ jobs:
         with:
           owner: 'yume190'
           repository: 'TypeFill'
+          branch: 'master'
+
+      - run: |
+          ls -l
 
       - name: Clone  PRIVATE repository
         uses: GuillaumeFalourd/clone-github-repo-action@v2.3
